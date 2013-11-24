@@ -1,0 +1,25 @@
+{
+  "name": "ackintosh/toumi",
+  "description": "Library to include the legacy code.",
+  "keywords": ["legacy", "include"],
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/ackintosh/toumi",
+  "authors": [
+    {
+      "name": "Akihito Nakano",
+      "email": "sora.akatsuki@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "3.7.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Ackintosh_Toumi": "source/"
+    }
+  }
+}
