@@ -2,6 +2,8 @@
 
 Library to include the legacy code.
 
+[![Build Status](https://travis-ci.org/ackintosh/toumi.png?branch=master)](https://travis-ci.org/ackintosh/toumi)
+
 ## Usage
 
 `legacy.php`
