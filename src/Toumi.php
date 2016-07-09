@@ -7,6 +7,7 @@ class Toumi
      * Load only Function|Class Declarations.
      *
      * @param   string|array
+     * @return  void
      * @throws  \InvalidArgumentException
      */
     public static function load($paths)
@@ -25,12 +26,20 @@ class Toumi
         }
     }
 
+    /**
+     * @param   string  $source
+     * @return  void
+     */
     private static function filteringAndEval($source)
     {
         $filtered = self::filtering($source);
         eval($filtered);
     }
 
+    /**
+     * @param   string  $source
+     * @return  string  $filtered
+     */
     private static function filtering($source)
     {
         $tokens     = token_get_all($source);
