@@ -1,6 +1,6 @@
 # Toumi
 
-Library to include the legacy code.
+A library for including legacy php file.
 
 [![Build Status](https://travis-ci.org/ackintosh/toumi.png?branch=master)](https://travis-ci.org/ackintosh/toumi)
 
