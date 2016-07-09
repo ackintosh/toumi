@@ -7,14 +7,14 @@ class Toumi
      * Load only Function|Class Declarations.
      *
      * @param   string|array
-     * @throws  InvalidArgumentException
+     * @throws  \InvalidArgumentException
      */
     public static function load($paths)
     {
         if (!is_array($paths)) $paths = array($paths);
         foreach ($paths as $p) {
             $source = @file_get_contents($p);
-            if ($source === false) throw new InvalidArgumentException();
+            if ($source === false) throw new \InvalidArgumentException();
 
             self::filteringAndEval($source);
         }
