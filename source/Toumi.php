@@ -1,5 +1,7 @@
 <?php
-class Ackintosh_Toumi
+namespace Ackintosh;
+
+class Toumi
 {
     /**
      * Load only Function|Class Declarations.

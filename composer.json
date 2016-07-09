@@ -18,8 +18,8 @@
     "phpunit/phpunit": "*"
   },
   "autoload": {
-    "psr-0": {
-      "Ackintosh_Toumi": "source/"
+    "psr-4": {
+      "Ackintosh\\": "source/"
     }
   }
 }
