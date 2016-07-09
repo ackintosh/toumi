@@ -30,11 +30,14 @@ exit;
 ```php
 <?php
 // Only function declaration is included.
-Ackintosh_Toumi::load('legacy.php');
+\Ackintosh\Toumi::load('legacy.php');
 
 class LegacyTest extends PHPUnit_Framework_TestCase
 {
-    public function test_hoge()
+    /**
+     * @test
+     */
+    public function hoge()
     {
         $this->assertSame('hogefuga', hoge('fuga'));
     }
