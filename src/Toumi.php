@@ -47,6 +47,7 @@ class Toumi
         $blaceCount = 0;
         $started    = false;
         $inNamespace = false;
+        $inCulyOpen = false;
         foreach ($tokens as $t) {
             if (is_array($t)) {
                 switch ($t[0]) {
@@ -59,6 +60,10 @@ class Toumi
                      $inNamespace = true;
                      $filtered .= "\n" . $t[1];
                      break;
+                 case T_CURLY_OPEN:
+                     $inCulyOpen = true;
+                     $filtered .= $t[1];
+                     break;
                 default:
                     if ($started || $inNamespace) {
                         $filtered .= $t[1];
@@ -66,8 +71,13 @@ class Toumi
                     break;
                 }
             } else {
-                if ($started || $inNamespace) {
+                if ($started || $inNamespace || $inCulyOpen) {
                     $filtered .= $t;
+                }
+
+                if ($inCulyOpen && $t === '}') {
+                    $inCulyOpen = false;
+                    continue;
                 }
 
                 if ($t === '{') {
