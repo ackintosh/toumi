@@ -26,6 +26,17 @@ class ToumiTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
+     */
+    public function loadIncludesNamespace()
+    {
+        Toumi::load(dirname(__FILE__) . '/namespaces.php');
+        $this->assertTrue(class_exists('\Foo\Bar\Hoge'));
+        $this->assertTrue(class_exists('\Foo\Bar\Foo'));
+        $this->assertTrue(function_exists('\Foo\Bar\xxx'));
+    }
+
+    /**
+     * @test
      * @expectedException \InvalidArgumentException
      */
     public function loadThrowsExceptionIfFileNotFound()

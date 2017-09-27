@@ -46,8 +46,8 @@ class Toumi
         $filtered   = '';
         $blaceCount = 0;
         $started    = false;
+        $inNamespace = false;
         foreach ($tokens as $t) {
-
             if (is_array($t)) {
                 switch ($t[0]) {
                 case T_CLASS:
@@ -55,14 +55,18 @@ class Toumi
                     $started = true;
                     $filtered .= "\n" . $t[1];
                     break;
+                 case T_NAMESPACE:
+                     $inNamespace = true;
+                     $filtered .= "\n" . $t[1];
+                     break;
                 default:
-                    if ($started) {
+                    if ($started || $inNamespace) {
                         $filtered .= $t[1];
                     }
                     break;
                 }
             } else {
-                if ($started) {
+                if ($started || $inNamespace) {
                     $filtered .= $t;
                 }
 
@@ -73,6 +77,11 @@ class Toumi
                     if ($blaceCount === 0) {
                         $started = false;
                     }
+                }
+
+                if ($inNamespace && $t === ';') {
+                    $filtered .= $t;
+                    $inNamespace = false;
                 }
             }
         }
