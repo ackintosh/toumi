@@ -37,6 +37,15 @@ class ToumiTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
+     */
+    public function loadIncludesComplexStringConcatenation()
+    {
+        Toumi::load(dirname(__FILE__) . '/string.php');
+        $this->assertSame("test 'test' test", returnsString());
+    }
+
+    /**
+     * @test
      * @expectedException \InvalidArgumentException
      */
     public function loadThrowsExceptionIfFileNotFound()
