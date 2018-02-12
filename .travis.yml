@@ -12,6 +12,6 @@ matrix:
       dist: precise
 
 before_script:
-  - ci/install_dependencies.sh
+  - composer install
 
 script: vendor/bin/phpunit
